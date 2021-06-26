@@ -36,7 +36,7 @@ class Opção1:
                     arestas = poliedro.know_arestas()
                     print(arestas)
 
-                print('--' * 30)
+                print('-' * 30)
                 if poliedro.validar():
                     print('é um poliedro')
                 else:

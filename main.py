@@ -15,5 +15,5 @@ while True:
     elif opção == 1:
         Opção1()
 
-    print('-'*30)
+    print('-'*40)
 print('\n\033[1;32mObrigado VOLTE SEMPRE !\033[m')
