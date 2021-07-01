@@ -25,20 +25,27 @@ class Opção1:
                 faces = valida_int(input('faces : '))
                 arestas = valida_int(input('arestas : '))
 
-                poliedro = R_euler(vertices, faces, arestas)
+                poliedro_euler = R_euler(vertices, faces, arestas)
+                poliedro_regular = P_regular(vertices, faces, arestas)
+
                 if vertices == 0:
-                    vertices = poliedro.know_vertices()
+                    vertices = poliedro_euler.know_vertices()
                     print(vertices)
                 if faces == 0:
-                    faces = poliedro.know_faces()
+                    faces = poliedro_euler.know_faces()
                     print(faces)
                 if arestas == 0:
-                    arestas = poliedro.know_arestas()
+                    arestas = poliedro_euler.know_arestas()
                     print(arestas)
 
                 print('-' * 40)
-                if poliedro.validar():
+                if poliedro_euler.validar():
                     print('é um poliedro')
                 else:
                     print('não é um poliedro')
-
+                if poliedro_regular.validar():
+                    print('é regular')
+                    print(f'é um {poliedro_regular.tipo()}')
+                else:
+                    print('não é regular')
+                print('-'*60)

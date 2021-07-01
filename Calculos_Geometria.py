@@ -1,4 +1,3 @@
-import math as mt
 
 class R_euler:
     def __init__(self, vertices=0, faces=0, arestas=0):
@@ -24,16 +23,28 @@ class R_euler:
         self.vertices = (self.arestas + 2) - self.faces
         return self.vertices
 
-class Platão:
+class P_regular:
     def __init__(self, vertices=0, faces=0, arestas=0):
         self.vertices = vertices
         self.faces = faces
         self.arestas = arestas
 
     def validar(self):
-        valido = R_euler(self.vertices, self.faces, self.arestas)
-
-        if (self.arestas - self.faces == self.faces
-                and self.arestas / self.vertices == self.vertices
-                and valido.validar()):
+        if (self.vertices - self.arestas + self.faces) == 2:
             return True
+        else:
+            return False
+
+    def tipo(self):
+        if self.faces < 6:
+            return 'Tetraedro'
+        elif self.faces < 8:
+            return 'Hexaedro'
+        elif self.faces < 12:
+            return 'Octaedro'
+        elif self.faces < 20:
+            return 'Dodecaedro'
+        elif self.faces == 20:
+            return 'Icosaedro'
+        else:
+            return '< Desconhecido >'
